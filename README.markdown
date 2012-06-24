@@ -31,6 +31,16 @@ Make sure you have the `lein-midje` plugin installed in order to run your facts 
 
 `lein plugin install lein-midje 1.0.9`
 
+### Database migrations
+
+clj-boilerplate uses `lobos` to evolve your database schems. Have a look at the `migrations.clj` file to see the default migration that ships with the app. One of the included facts - see below - shows how to run and rollback migrations.
+
+
+### Included facts
+
+In midje, tests are usually referred to as `facts` and clj-boilerplate includes two of them. One can be found in `core.clj` under the `test` directory. It shows we have compojure configure correctly and also demonstrates how to use `ring-mock` to generate a valid request maps for facts.
+
+The other fact is located in `users.clj` and shows how we can integrate `lobos` with midje's background feature to reset the database between facts.
 
 ## License
 
