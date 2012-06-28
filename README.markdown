@@ -20,6 +20,9 @@ We're using [leiningen](https://github.com/technomancy/leiningen/) for project m
 `lein deps`
 
 
+You will also need at least two databases `clj-boilerplate` and `clj-boilerplate-test`, corresponding respectively to a `development` and a `test` database. `production` will by default read it's configuration from the `DATABASE_URL` environment variable. The app ships with the **postgresql** driver but it should be easy to change it to any database supported by both `korma` and `lobos`.
+
+
 Then start the web server:
 
 
@@ -38,9 +41,6 @@ This means every lein command such as `lein repl`, `lein ring server` etc needs 
 
 
 `ENVIRONMENT=test lein midje`
-
-
-You will also need at least two databases `clj-boilerplate` and `clj-boilerplate-test`, corresponding respectively to a `development` and a `test` database. `production` will by default read it's configuration from the `DATABASE_URL` environment variable. The app ships with the **postgresql** driver but it should be easy to change it to any database supported by both `korma` and `lobos`.
 
 
 Make sure you have the `lein-midje` plugin installed in order to run your facts and get a better/prettier output:
