@@ -4,7 +4,8 @@
   (:use midje.sweet)
   (:use lobos.core lobos.connectivity lobos.migration lobos.migrations))
 
-(use 'clj-boilerplate.users :reload)
+;;use this to reload the file under test
+;;(use 'clj-boilerplate.users :reload)
 
 (background 
  (before :facts (migrate)
