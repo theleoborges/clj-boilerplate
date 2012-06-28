@@ -12,18 +12,35 @@ Here's what's included:
 * [lazytest](https://github.com/stuartsierra/lazytest) - Watches your test files and reloads the ones you touch
 
 
-### Before starting
+### Getting Started
 
-The app understands different environments out of the box. By default it assumes it's running in `development` mode - look at the `env.clj` file. All your environment specific configuration should probably go in there.
+We're using [leiningen](https://github.com/technomancy/leiningen/) for project management so the first thing you will want to do is download all the dependencies:
 
 
-This means every lein command such as `lein repl`, `lein ring server` etc need to know which environment they're supposed to run under - or they will default to `development`. That's simple enough though. So if you want to, say, run your tests against the `test` environment, just provide the `ENVIRONMENT` env variable:
+`lein deps`
+
+
+Then start the web server:
+
+
+`lein ring server`
+
+
+You should be ready to go.
+
+
+### More
+
+The app understands different environments out of the box. By default it assumes it's running in `development` mode - look at the `env.clj` file. All your environment specific configuration should probably go in there. It's simple and it works but if you need something more elaborate or would like to use another format for the config files, then [milieu](https://github.com/drakerlabs/milieu) might be worth a try.
+
+
+This means every lein command such as `lein repl`, `lein ring server` etc needs to know which environment they're supposed to run under - or they will default to `development`. That's simple enough though. So if you want to, say, run your tests against the `test` environment, just provide the `ENVIRONMENT` env variable:
 
 
 `ENVIRONMENT=test lein midje`
 
 
-You will also need at least two databases `clj-boilerplate` and `clj-boilerplate-test`, corresponding respectively to a `development` and a `test` database. `production` will by default read it's configuration from the `DATABASE_URL` environment variable. The app ships with the postgresql driver but it should be easy to change it to any database supported by both `korma` and `lobos`.
+You will also need at least two databases `clj-boilerplate` and `clj-boilerplate-test`, corresponding respectively to a `development` and a `test` database. `production` will by default read it's configuration from the `DATABASE_URL` environment variable. The app ships with the **postgresql** driver but it should be easy to change it to any database supported by both `korma` and `lobos`.
 
 
 Make sure you have the `lein-midje` plugin installed in order to run your facts and get a better/prettier output:
@@ -41,6 +58,7 @@ clj-boilerplate uses `lobos` to evolve your database schems. Have a look at the 
 In midje, tests are usually referred to as `facts` and clj-boilerplate includes two of them. One can be found in `core.clj` under the `test` directory. It shows we have compojure configure correctly and also demonstrates how to use `ring-mock` to generate a valid request maps for facts.
 
 The other fact is located in `users.clj` and shows how we can integrate `lobos` with midje's background feature to reset the database between facts.
+
 
 ## License
 
