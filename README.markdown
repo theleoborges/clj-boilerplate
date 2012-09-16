@@ -1,5 +1,11 @@
 ## clj-boilerplate
 
+### Please note
+
+The master branch is **lein 2.x compatible only**. If you're after the older version of this project, check out the `lein1.x` branch.
+* * * 
+
+
 **clj-boilerplate** is a clojure application skeleton that's been helping me bootstrap my personal projects. It's opinionated in it's framework choices but if you think the same way I do, this should provide you with a great head start.
 
 Here's what's included:
